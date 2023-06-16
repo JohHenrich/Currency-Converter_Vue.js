@@ -20,7 +20,7 @@ export async function convert (amount: number, fromCurrency: string, toCurrency:
     const convertedAmount = (amount * rate).toFixed(2)
     return parseFloat(convertedAmount)
   } catch (error) {
-    console.error(error)
+    // console.error(error)
     throw new Error('Failed to convert currencies.')
   }
 }

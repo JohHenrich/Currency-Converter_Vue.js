@@ -84,7 +84,7 @@ export default defineComponent({
       try {
         this.convertedAmount = await convert(this.amount, this.fromCurrency, this.toCurrency)
       } catch (error) {
-        console.error(error)
+        // console.error(error)
         this.errorMessage = 'Failed to convert currencies.'
       }
       this.isConverting = false
