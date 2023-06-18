@@ -13,6 +13,7 @@ export async function convert (amount: number, fromCurrency: string, toCurrency:
   try {
     // Fetch the exchange rates from the API based on the source currency
     const response = await axios.get(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
+
     const exchangeRates = response.data.rates
     // Get the conversion rate for the target currency
     const rate = exchangeRates[toCurrency]
@@ -20,7 +21,7 @@ export async function convert (amount: number, fromCurrency: string, toCurrency:
     const convertedAmount = (amount * rate).toFixed(2)
     return parseFloat(convertedAmount)
   } catch (error) {
-    // console.error(error)
+    console.error(error)
     throw new Error('Failed to convert currencies.')
   }
 }
